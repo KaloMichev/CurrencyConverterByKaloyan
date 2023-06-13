@@ -18,7 +18,15 @@ namespace CurrencyConverter
                 decimal amountBGN = this.numericUpDownAmount.Value;
                 decimal amountEUR = amountBGN / ConversionCoefficient;
 
-                this.resultLabel.Text = $"{amountBGN} BGN = {amountEUR:F2} EUR";
+                if (amountBGN == 0)
+                {
+                    this.resultLabel.Text = "Invalid number";
+                }
+                else
+                {
+                    this.resultLabel.Text = $"{amountBGN} BGN = {amountEUR:F2} EUR";
+                }
+                
 
             }
             else if (currencySelect.SelectedIndex == 1)
@@ -28,7 +36,14 @@ namespace CurrencyConverter
                 decimal amountEUR = this.numericUpDownAmount.Value;
                 decimal amountBGN = amountEUR * ConversionCoefficient;
 
-                this.resultLabel.Text = $"{amountEUR} EUR = {amountBGN:F2} BGN";
+                if(amountEUR <= 0)
+                {
+                    this.resultLabel.Text = "Invalid number";
+                }
+                else
+                {
+                    this.resultLabel.Text = $"{amountEUR} EUR = {amountBGN:F2} BGN";
+                }
             }
             else
             {
